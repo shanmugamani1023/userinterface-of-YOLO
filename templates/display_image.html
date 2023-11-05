@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="static/bootstrap-5.0.2-dist/css/bootstrap.min.css"  crossorigin="anonymous">
+	<style>
+.container {
+  text-align: center;
+}
+
+.box {
+  display: inline-block;
+  width: 30%;
+  
+  background-color: white;
+  margin: 10px;
+}
+</style>
+	<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <title>yolov5 object detection</title>
+  </head>
+  <body >
+  <div class="container">
+   <div class="box">
+    <form class="form-signin" method=post enctype=multipart/form-data name="form1">
+        <img class="mb-4" src="/static/pytorch.png" alt="" width="72">
+        <h1 class="h3 mb-3 font-weight-normal">Upload any image or video</h1>
+     <input type="file" name="file" class="form-control-file" id="inputfile" >
+
+        <br/>
+		    
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
+  <p class="mt-5 mb-3 text-muted">Built using shan Pytorch & Flask</p>
+    </form>
+</div>
+   <br>  
+		
+
+		 
+	
+       <script src="static/jquery-3.7.1.min.js"  crossorigin="anonymous"></script>
+    <script src="static/popper.min.js"  crossorigin="anonymous"></script>
+    <script src="static/bootstrap-5.0.2-dist/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+
+
+
+<!-- detected image display -->
+<!-- <img id="my-image" style="display: none;" src="{{ url_for('display', filename=image_path) }}"/>  -->
+
+<img id="my-image" src="{{ url_for('display', filename=filename) }}"/> 
+
+<!-- <script>
+document.getElementById("my-image").onload = function() {
+  this.style.display = "block";
+};
+</script> -->
+
+
+ </div>
+ </div>
+  </body>
+</html>

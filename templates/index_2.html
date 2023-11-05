@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <style>
+.box {
+  display: inline-block;
+  width: 50%;
+
+  background-color: white;
+  margin: 10px;
+}
+
+        </style>
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class='bx bx-target-lock'></i>
+        <span class="logo_name">Object Detection App</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Image/Video</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="bx bx-list-ul"></i>
+            <span class="links_name">Live cam</span>
+          </a>
+        </li>
+
+        <li class="log_out">
+          <a href="#">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <section class="home-section">
+      <nav class="box">
+
+    <form class="form-signin" method=post enctype=multipart/form-data name="form1">
+        <img class="mb-4" src="/static/pytorch.png" alt="" width="72">
+        <h1 class="h3 mb-3 font-weight-normal">Upload any image or video</h1>
+     <input type="file" name="file" class="form-control-file" id="inputfile" >
+
+        <br/>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
+    </form>
+      </nav>
+<div class="parent">
+{% for i in files_path %}
+        {% if loop.index0 == 0 %}
+        <div class="child1">
+        <img src="{{ url_for('display', filename=i) }}" alt="Image" width="500px" height="500px">
+
+        </div>
+
+        {% endif %}
+    {% endfor %}
+
+</div>
+
+        <div class="parent">
+            <div class="child1">
+            <img id="my-video-image" src="{{ url_for('video_feed') }}" style="height:640; width:640px" />
+
+            </div>
+
+        </div>
+
+
+ <div class="box">
+<!-- script for opening a webcam and performing detections -->
+<button id="start-webcam" onclick="startWebcam()" class="btn btn-lg btn-primary btn-block">Start Webcam</button>
+<script>
+function startWebcam() {
+  window.location.href = "/webcam_feed";
+}
+</script>
+<!-- webcam ends here -->
+
+ </div>
+    </section>
+
+    <script>
+
+document.getElementById("my-image").onload = function() {
+  this.style.display = "block";
+};
+        document.getElementById("my-video-image").onload = function() {
+  this.style.display = "block";
+};
+
+
+    </script>
+  </body>
+</html>
